@@ -45,9 +45,13 @@ service "asterisk" do
 end
 
 external_ip = node[:ec2] ? node[:ec2][:public_ipv4] : node[:ipaddress]
-users = search(:asterisk_users) || []
-auth = search(:auth, "id:google") || []
-dialplan_contexts = search(:asterisk_contexts) || []
+#chef-solo does not like recipes that search
+#users = search(:asterisk_users) || []
+#auth = search(:auth, "id:google") || []
+#dialplan_contexts = search(:asterisk_contexts) || []
+users = []
+auth = []
+dialplan_contexts = []
 
 %w{sip manager modules extensions gtalk jabber}.each do |template_file|
   template "/etc/asterisk/#{template_file}.conf" do
