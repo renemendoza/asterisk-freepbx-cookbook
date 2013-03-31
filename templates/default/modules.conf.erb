@@ -65,6 +65,14 @@ noload => app_directory_odbc.so
 ;
 noload => res_config_odbc.so
 noload => res_config_pgsql.so
+
+
+; Please use odbc instead of the deprecated mysql module
+
+load => app_mysql.so
+load => res_config_mysql.so
+load => cdr_mysql.so
+
 ;
 ; Module names listed in "global" section will have symbols globally
 ; exported to modules loaded after them.
