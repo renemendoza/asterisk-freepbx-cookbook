@@ -1,5 +1,5 @@
 default['asterisk']['use_digium_repo']  = false
-default['asterisk']['packages']         = ['asterisk']
+default['asterisk']['packages']         = ['asterisk', 'asterisk-mysql']
 
 #Setup the Manager.conf file, refer to: http://www.voip-info.org/tiki-index.php?page=Asterisk%20config%20manager.conf
 #[general]
